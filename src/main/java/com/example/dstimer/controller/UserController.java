@@ -2,8 +2,12 @@ package com.example.dstimer.controller;
 import com.example.dstimer.entity.t_user;
 import com.example.dstimer.mapper.UserMapper;
 import com.example.dstimer.service.UserService;
+import org.apache.ibatis.jdbc.Null;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController //表示是可以返回JSON的Controller
@@ -26,5 +30,34 @@ class UserController {
     @PostMapping
     public Integer save(@RequestBody t_user user){
         return userService.save(user);
+    }
+
+    //登录
+    @GetMapping("/login")
+    public t_user login(@RequestBody t_user user, Model model, HttpSession session){
+        t_user usr = userService.getUserByName(user.getName());
+        //用户存在时
+        if(usr!=null){
+            //用户名密码都正确时
+            if (usr.getPassword().equals(user.getPassword())){
+                List<t_user> allUsr = userMapper.findAll();
+                session.setAttribute("userInfo",usr.getName());
+                return usr;
+            }else {
+                //密码不正确时
+                model.addAttribute("msg","用户名或者密码错误");
+                return null;
+            }
+        }else {
+            model.addAttribute("msg","用户名不存在");
+            return null;
+        }
+    }
+
+    @RequestMapping("/logout")
+    public String logout(HttpSession session){
+        //注销用户
+        session.invalidate();
+        return "index";
     }
 }

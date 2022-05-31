@@ -10,12 +10,19 @@ import org.springframework.stereotype.Component;
 public class UserService {
     @Autowired
     private UserMapper userMapper;
+
+    //注册或者更新用户信息
     public int save(t_user user){
         if(user.getId()==null){//没有ID
             return userMapper.insert(user);
         }else {
-            return userMapper.update(user);
+            return userMapper.updateUser(user);
         }
+    }
+
+    //通过用户名查找用户信息
+    public t_user getUserByName(String username) {
+        return userMapper.getUserByName(username);
     }
 
 }
