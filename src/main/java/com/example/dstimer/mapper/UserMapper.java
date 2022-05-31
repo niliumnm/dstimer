@@ -1,10 +1,8 @@
 package com.example.dstimer.mapper;
 
 import com.example.dstimer.entity.t_user;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
+
 import java.util.List;
 
 //Dao层 进行实际的操作 由service来调用 没有逻辑判断时可以绕过service直接由controller调用
@@ -29,4 +27,6 @@ public interface UserMapper {
     t_user getUserByName(String name);
 
 
+    @Delete("DELETE FROM t_user WHERE id=#{id}")
+    int deleteUserByID(int id);
 }

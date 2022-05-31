@@ -22,42 +22,48 @@ class UserController {
     @Autowired //自动装配
 
     private UserService userService;
+
     @GetMapping
     public List<t_user> index() {
         return userMapper.findAll();
     }
 
     @PostMapping
-    public Integer save(@RequestBody t_user user){
+    public Integer save(@RequestBody t_user user) {
         return userService.save(user);
     }
 
     //登录
     @GetMapping("/login")
-    public t_user login(@RequestBody t_user user, Model model, HttpSession session){
+    public t_user login(@RequestBody t_user user, Model model, HttpSession session) {
         t_user usr = userService.getUserByName(user.getName());
         //用户存在时
-        if(usr!=null){
+        if (usr != null) {
             //用户名密码都正确时
-            if (usr.getPassword().equals(user.getPassword())){
+            if (usr.getPassword().equals(user.getPassword())) {
                 List<t_user> allUsr = userMapper.findAll();
-                session.setAttribute("userInfo",usr.getName());
+                session.setAttribute("userInfo", usr.getName());
                 return usr;
-            }else {
+            } else {
                 //密码不正确时
-                model.addAttribute("msg","用户名或者密码错误");
+                model.addAttribute("msg", "用户名或者密码错误");
                 return null;
             }
-        }else {
-            model.addAttribute("msg","用户名不存在");
+        } else {
+            model.addAttribute("msg", "用户名不存在");
             return null;
         }
     }
 
     @RequestMapping("/logout")
-    public String logout(HttpSession session){
+    public String logout(HttpSession session) {
         //注销用户
         session.invalidate();
         return "index";
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public Integer deleteUserById(@PathVariable(name = "id") int id){
+        return userService.deleteUserByID(id);
     }
 }

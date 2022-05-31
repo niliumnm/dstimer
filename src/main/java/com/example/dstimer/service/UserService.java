@@ -25,4 +25,9 @@ public class UserService {
         return userMapper.getUserByName(username);
     }
 
+    public int deleteUserByID(int id) {
+        //id是否合法
+        if(id<0||id>65532)return -1;
+        return userMapper.deleteUserByID(id);
+    }
 }
