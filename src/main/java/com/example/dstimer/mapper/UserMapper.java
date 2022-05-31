@@ -16,10 +16,12 @@ public interface UserMapper {
     public List<t_user> findAll();
 
     //插入一个新用户
-    @Insert("INSERT INTO t_user(name,nickname,password)VALUES(#{name},#{nickname},#{password});")
+    @Insert("INSERT INTO t_user(name,nickname,password,avatar_url,sex,email,phone,address)VALUES(#{name},#{nickname},#{password},#{avatar_url},#{sex},#{email},#{phone},#{address});")
     int insert(t_user user);
 
     //更新一条用户记录
-    @Update("UPDATE t_user SET name=#{name},nickname=#{nickname},password=#{password} WHERE id=#{id}")
+    @Update("UPDATE t_user SET name=#{name},nickname=#{nickname},password=#{password},avatar_url=#{avatar_url},sex=#{sex},email=#{email},phone=#{phone},address=#{address} WHERE id=#{id}")
     int update(t_user user);
+
+
 }

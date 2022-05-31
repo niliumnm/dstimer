@@ -11,7 +11,6 @@ import java.util.List;
 
 class UserController {
     //Mapper相当于Dao层 实际的操作
-
     @Autowired //自动装配
     private UserMapper userMapper;
 
