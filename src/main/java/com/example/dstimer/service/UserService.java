@@ -1,0 +1,21 @@
+package com.example.dstimer.service;
+
+import com.example.dstimer.entity.t_user;
+import com.example.dstimer.mapper.UserMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+//逻辑层 通过这一层判断操作
+@Component
+public class UserService {
+    @Autowired
+    private UserMapper userMapper;
+    public int save(t_user user){
+        if(user.getId()==null){//没有ID
+            return userMapper.insert(user);
+        }else {
+            return userMapper.update(user);
+        }
+    }
+
+}

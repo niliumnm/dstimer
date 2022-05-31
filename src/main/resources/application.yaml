@@ -1,0 +1,20 @@
+# 改端口
+server:
+  port: 9090
+
+
+# 数据库配置
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/dstimer?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# 开debug模式
+logging:
+  level:
+    com:
+      example:
+        dstimer:
+          mapper: debug
