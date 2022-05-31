@@ -2,7 +2,6 @@ package com.example.dstimer.controller;
 import com.example.dstimer.entity.t_user;
 import com.example.dstimer.mapper.UserMapper;
 import com.example.dstimer.service.UserService;
-import org.apache.ibatis.jdbc.Null;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +19,6 @@ class UserController {
 
     //service是逻辑层 需要判断的时候用
     @Autowired //自动装配
-
     private UserService userService;
 
     @GetMapping
