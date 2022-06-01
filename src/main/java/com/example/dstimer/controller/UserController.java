@@ -66,16 +66,21 @@ class UserController {
         return userService.deleteUserByID(id);
     }
 
+    //分页
     @GetMapping("/page")
-    public Map<String, Object> findPage(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
+    public Map<String, Object> findPage(@RequestParam Integer pageNum,
+                                        @RequestParam Integer pageSize,
+                                        @RequestParam String name) {
+        String Name="%"+name+"%";
         pageNum = (pageNum - 1) * pageSize;
-        List<t_user> data = userMapper.selectPage(pageNum, pageSize);
-        Integer total= userMapper.selectTotal();
+        List<t_user> data = userMapper.selectPage(pageNum, pageSize,Name);
+        Integer total= userMapper.selectTotal(pageNum,pageSize,Name);
         Map<String, Object> res = new HashMap<>();
         res.put("data", data);
         res.put("total", total);
         return res;
     }
+
 
 
 }

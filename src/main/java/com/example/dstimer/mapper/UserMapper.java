@@ -29,9 +29,9 @@ public interface UserMapper {
     @Delete("DELETE FROM t_user WHERE id=#{id}")
     int deleteUserByID(int id);
 
-    @Select("SELECT * FROM t_user LIMIT #{pageNum},#{pageSize}")
-    List<t_user> selectPage(Integer pageNum, Integer pageSize);
+    @Select("SELECT * FROM t_user WHERE name like #{name} LIMIT #{pageNum},#{pageSize}")
+    List<t_user> selectPage(Integer pageNum, Integer pageSize, String name);
 
-    @Select("SELECT COUNT(*) from t_user")
-    Integer selectTotal();
+    @Select("SELECT COUNT(*) from t_user WHERE name like #{name} LIMIT #{pageNum},#{pageSize}" )
+    Integer selectTotal(Integer pageNum, Integer pageSize, String name);
 }
