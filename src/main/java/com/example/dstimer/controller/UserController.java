@@ -5,7 +5,6 @@ import com.example.dstimer.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -26,7 +25,7 @@ class UserController {
         return userMapper.findAll();
     }
 
-    @PostMapping
+    @PostMapping("/save")
     public Integer save(@RequestBody t_user user) {
         return userService.save(user);
     }

@@ -18,7 +18,6 @@ public interface UserMapper {
     int insert(t_user user);
 
     //更新一条用户记录
-    @Update("UPDATE t_user SET name=#{name},nickname=#{nickname},password=#{password},avatar_url=#{avatar_url},sex=#{sex},email=#{email},phone=#{phone},address=#{address} WHERE id=#{id}")
     int updateUser(t_user user);
 
 

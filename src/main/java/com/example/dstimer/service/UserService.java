@@ -4,9 +4,10 @@ import com.example.dstimer.entity.t_user;
 import com.example.dstimer.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 //逻辑层 通过这一层判断操作
-@Component
+@Service
 public class UserService {
     @Autowired
     private UserMapper userMapper;
