@@ -32,7 +32,7 @@ class UserController {
     }
 
     //登录
-    @GetMapping("/login")
+    @PostMapping("/login")
     public t_user login(@RequestBody t_user user, Model model, HttpSession session) {
         t_user usr = userService.getUserByName(user.getName());
         //用户存在时
