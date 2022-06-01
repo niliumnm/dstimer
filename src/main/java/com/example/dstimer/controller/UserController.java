@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController //表示是可以返回JSON的Controller
 @RequestMapping("/user")  //地址映射
@@ -63,4 +65,17 @@ class UserController {
     public Integer deleteUserById(@PathVariable(name = "id") int id){
         return userService.deleteUserByID(id);
     }
+
+    @GetMapping("/page")
+    public Map<String, Object> findPage(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
+        pageNum = (pageNum - 1) * pageSize;
+        List<t_user> data = userMapper.selectPage(pageNum, pageSize);
+        Integer total= userMapper.selectTotal();
+        Map<String, Object> res = new HashMap<>();
+        res.put("data", data);
+        res.put("total", total);
+        return res;
+    }
+
+
 }

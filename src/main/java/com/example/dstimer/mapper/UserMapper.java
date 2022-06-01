@@ -28,4 +28,10 @@ public interface UserMapper {
 
     @Delete("DELETE FROM t_user WHERE id=#{id}")
     int deleteUserByID(int id);
+
+    @Select("SELECT * FROM t_user LIMIT #{pageNum},#{pageSize}")
+    List<t_user> selectPage(Integer pageNum, Integer pageSize);
+
+    @Select("SELECT COUNT(*) from t_user")
+    Integer selectTotal();
 }
