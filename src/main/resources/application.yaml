@@ -10,6 +10,10 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+  # springboot2.6以上不开这个swagger会报错
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 
 # 开debug模式
 logging:
@@ -22,3 +26,6 @@ logging:
 # 扫描Mybatis的xml文件
 mybatis:
   mapper-locations: classpath:mapper/*.xml
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
