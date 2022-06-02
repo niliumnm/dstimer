@@ -4,8 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e52613b-5b16-4504-a156-7a7c0a6e308f" name="Changes" comment="1.0  增删改查完成 mybatisplus swagger集成">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="4e52613b-5b16-4504-a156-7a7c0a6e308f" name="Changes" comment="swagger">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dstimer/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dstimer/entity/dto/UserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dstimer/service/IUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dstimer/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dstimer/utils/CodeGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/controller.java.vm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/entity.java.vm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/mapper.xml.vm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/service.java.vm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/serviceImpl.java.vm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/temp/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dstimer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dstimer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dstimer/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dstimer/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dstimer/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dstimer/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dstimer/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/temp/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/User.xml" beforeDir="false" afterPath="$PROJECT_DIR$/temp/User.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dstimer/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dstimer/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dstimer/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dstimer/mapper/UserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dstimer/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/User.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/接口文档.md" beforeDir="false" afterPath="$PROJECT_DIR$/接口文档.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,9 +42,6 @@
         <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="Git.Rebase.Settings">
-    <option name="NEW_BASE" value="master" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -37,20 +57,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\OneDrive\Code--Book\code\dstimer\src\main\resources\templates" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Administrator\OneDrive\Code--Book\code\dstimer\src\main\java\com\example\dstimer\service" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.DstimerApplication">
+    <configuration name="CodeGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.dstimer.utils.CodeGenerator" />
+      <module name="dstimer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.dstimer.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DstimerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="dstimer" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.dstimer.DstimerApplication" />
@@ -58,6 +99,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CodeGenerator" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -72,6 +118,9 @@
       <workItem from="1653919653196" duration="1053000" />
       <workItem from="1654048369024" duration="14213000" />
       <workItem from="1654131474850" duration="4200000" />
+      <workItem from="1654144807757" duration="2839000" />
+      <workItem from="1654153847700" duration="1557000" />
+      <workItem from="1654155620961" duration="2712000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore里忽略数据库配置文件 我们的数据库密码不一样">
       <created>1654049707979</created>
@@ -87,14 +136,7 @@
       <option name="project" value="LOCAL" />
       <updated>1654135690279</updated>
     </task>
-    <task id="LOCAL-00003" summary="1.0  增删改查完成 mybatisplus swagger集成">
-      <created>1654138006354</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1654138006354</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,10 +187,6 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="gitignore里忽略数据库配置文件 我们的数据库密码不一样" />
     <MESSAGE value="swagger" />
-    <MESSAGE value="1.0  增删改查完成 mybatisplus swagger集成" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.0  增删改查完成 mybatisplus swagger集成" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/dstimer$DstimerApplication.ic" NAME="DstimerApplication Coverage Results" MODIFIED="1653982121963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <option name="LAST_COMMIT_MESSAGE" value="swagger" />
   </component>
 </project>
