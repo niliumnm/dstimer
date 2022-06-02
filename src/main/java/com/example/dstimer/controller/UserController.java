@@ -2,8 +2,11 @@ package com.example.dstimer.controller;
 
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.example.dstimer.entity.dto.UserDTO;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
+import java.sql.Struct;
 import java.util.List;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 
@@ -28,6 +31,16 @@ public class UserController {
 
     @Resource
     private IUserService userService;
+
+    @PostMapping("/login")
+    public boolean login(@RequestBody UserDTO userDTO) {
+        String name = userDTO.getName();
+        String password = userDTO.getPassword();
+        if (StringUtils.isBlank(name) || StringUtils.isBlank(password)) {
+            return false;
+        }
+        return userService.login(userDTO);
+    }
 
     @PostMapping("/save")
     public Boolean save(@RequestBody User user) {

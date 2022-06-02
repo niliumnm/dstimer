@@ -2,6 +2,7 @@ package com.example.dstimer.service;
 
 import com.example.dstimer.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.dstimer.entity.dto.UserDTO;
 
 /**
  * <p>
@@ -13,4 +14,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IUserService extends IService<User> {
 
+    boolean login(UserDTO userDTO);
 }

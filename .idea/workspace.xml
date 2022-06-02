@@ -4,31 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e52613b-5b16-4504-a156-7a7c0a6e308f" name="Changes" comment="swagger">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dstimer/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dstimer/entity/dto/UserDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dstimer/service/IUserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dstimer/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dstimer/utils/CodeGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/controller.java.vm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/entity.java.vm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/mapper.xml.vm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/service.java.vm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/serviceImpl.java.vm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/temp/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dstimer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dstimer.iml" afterDir="false" />
+    <list default="true" id="4e52613b-5b16-4504-a156-7a7c0a6e308f" name="Changes" comment="重构 所有接口格式未改变">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dstimer/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dstimer/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dstimer/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dstimer/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dstimer/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/temp/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/User.xml" beforeDir="false" afterPath="$PROJECT_DIR$/temp/User.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dstimer/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dstimer/service/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dstimer/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dstimer/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/dstimer/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dstimer/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dstimer/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dstimer/mapper/UserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dstimer/service/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/User.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/接口文档.md" beforeDir="false" afterPath="$PROJECT_DIR$/接口文档.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +101,8 @@
       <workItem from="1654131474850" duration="4200000" />
       <workItem from="1654144807757" duration="2839000" />
       <workItem from="1654153847700" duration="1557000" />
-      <workItem from="1654155620961" duration="2712000" />
+      <workItem from="1654155620961" duration="2944000" />
+      <workItem from="1654160070875" duration="1996000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore里忽略数据库配置文件 我们的数据库密码不一样">
       <created>1654049707979</created>
@@ -136,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654135690279</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="重构 所有接口格式未改变">
+      <created>1654158508412</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1654158508412</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,6 +176,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="gitignore里忽略数据库配置文件 我们的数据库密码不一样" />
     <MESSAGE value="swagger" />
-    <option name="LAST_COMMIT_MESSAGE" value="swagger" />
+    <MESSAGE value="重构 所有接口格式未改变" />
+    <option name="LAST_COMMIT_MESSAGE" value="重构 所有接口格式未改变" />
   </component>
 </project>
