@@ -1,5 +1,6 @@
 package com.example.dstimer.service.impl;
 
+import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.dstimer.common.Constants;
 import com.example.dstimer.entity.User;
@@ -9,6 +10,7 @@ import com.example.dstimer.mapper.UserMapper;
 import com.example.dstimer.service.IUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
+import com.example.dstimer.utils.TokenUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +30,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         User one = getUserInfo(userDTO);
         if (one != null) {
             //Bean自带的拷贝 好像是反射实现的
-            BeanUtils.copyProperties(one, userDTO);
+            BeanUtil.copyProperties(one, userDTO,true);
+            //设置Token
+            String token = TokenUtils.genToken(one.getId().toString(), one.getPassword());
+            userDTO.setToken(token);
             return userDTO;
         } else {
             throw new ServiceException(Constants.CODE_600, "用户名或密码错误");
