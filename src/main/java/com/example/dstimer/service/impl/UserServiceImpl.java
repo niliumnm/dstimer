@@ -14,14 +14,7 @@ import com.example.dstimer.utils.TokenUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
-/**
- * <p>
- *  服务实现类
- * </p>
- *
- * @author sunbo
- * @since 2022-06-02
- */
+
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
 
@@ -46,6 +39,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         if (one == null) {
             one = new User();
             BeanUtils.copyProperties(userDTO, one);
+
             save(one);//存储
         }else {
             throw new ServiceException(Constants.CODE_600,"用户已存在");

@@ -10,7 +10,6 @@ import com.example.dstimer.entity.User;
 import com.example.dstimer.exception.ServiceException;
 import com.example.dstimer.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import javax.servlet.http.HttpServletRequest;

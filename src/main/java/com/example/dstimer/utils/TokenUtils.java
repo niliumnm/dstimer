@@ -16,8 +16,8 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
-import java.util.Date;
 
+@Component
 public class TokenUtils {
     private static IUserService staticUserService;
 
@@ -26,7 +26,7 @@ public class TokenUtils {
 
     @PostConstruct
     public void setUserService() {
-        staticUserService = userService;
+        staticUserService = userService;//转成静态 方便下面的静态方法使用
     }
 
     /**

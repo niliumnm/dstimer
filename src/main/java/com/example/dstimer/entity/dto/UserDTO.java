@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/*
-    用来接受前端的请求
+/**
+ *   用来接受前端的请求
  */
 @Data
 @AllArgsConstructor

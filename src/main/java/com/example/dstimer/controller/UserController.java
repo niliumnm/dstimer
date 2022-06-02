@@ -9,6 +9,7 @@ import com.example.dstimer.utils.TokenUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 
@@ -19,14 +20,9 @@ import com.example.dstimer.entity.User;
 
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * <p>
- *  前端控制器
- * </p>
- *
- * @author sunbo
- * @since 2022-06-02
- */
+import static com.example.dstimer.utils.MD5Util.generateMD5;
+
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -35,23 +31,25 @@ public class UserController {
     private IUserService userService;
 
     @PostMapping("/login")
-    public Result login(@RequestBody UserDTO userDTO) {
+    public Result login(@RequestBody UserDTO userDTO) throws UnsupportedEncodingException {
         String name = userDTO.getName();
         String password = userDTO.getPassword();
         if (StringUtils.isBlank(name) || StringUtils.isBlank(password)) {
             return Result.error(Constants.CODE_400,"参数错误");
         }
+        userDTO.setPassword(generateMD5(userDTO.getPassword()));
         UserDTO dto = userService.login(userDTO);
         return Result.success(dto);
     }
 
     @PostMapping("/register")
-    public Result register(@RequestBody UserDTO userDTO) {
+    public Result register(@RequestBody UserDTO userDTO) throws UnsupportedEncodingException {
         String name = userDTO.getName();
         String password = userDTO.getPassword();
         if (StringUtils.isBlank(name) || StringUtils.isBlank(password)) {
             return Result.error(Constants.CODE_400,"参数错误");
         }
+        userDTO.setPassword(generateMD5(userDTO.getPassword()));
         return Result.success(userService.register(userDTO));
     }
 
@@ -100,6 +98,7 @@ public class UserController {
         if (!"".equals(name)) {
             queryWrapper.like("name", name);
         }
+        //User currentUser = TokenUtils.getCurrentUser();
         return Result.success(userService.page(new Page<>(pageNum, pageSize), queryWrapper));
     }
 }
