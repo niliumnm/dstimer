@@ -2,11 +2,12 @@ package com.example.dstimer.controller;
 
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.example.dstimer.common.Constants;
+import com.example.dstimer.common.Result;
 import com.example.dstimer.entity.dto.UserDTO;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
-import java.sql.Struct;
 import java.util.List;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 
@@ -33,18 +34,30 @@ public class UserController {
     private IUserService userService;
 
     @PostMapping("/login")
-    public boolean login(@RequestBody UserDTO userDTO) {
+    public Result login(@RequestBody UserDTO userDTO) {
         String name = userDTO.getName();
         String password = userDTO.getPassword();
         if (StringUtils.isBlank(name) || StringUtils.isBlank(password)) {
-            return false;
+            return Result.error(Constants.CODE_400,"参数错误");
         }
-        return userService.login(userDTO);
+        UserDTO dto = userService.login(userDTO);
+        return Result.success(dto);
+    }
+
+    @PostMapping("/register")
+    public Result register(@RequestBody UserDTO userDTO) {
+        String name = userDTO.getName();
+        String password = userDTO.getPassword();
+        if (StringUtils.isBlank(name) || StringUtils.isBlank(password)) {
+            return Result.error(Constants.CODE_400,"参数错误");
+        }
+        return Result.success(userService.register(userDTO));
     }
 
     @PostMapping("/save")
-    public Boolean save(@RequestBody User user) {
-        return userService.saveOrUpdate(user);
+    public Result save(@RequestBody User user) {
+        return Result.success(userService.saveOrUpdate(user));
+        //return userService.saveOrUpdate(user); 已被包装类代替
     }
 
     @DeleteMapping("/{id}")
@@ -52,18 +65,32 @@ public class UserController {
         return userService.removeById(id);
     }
 
+    @PostMapping("/del/batch")
+    public boolean deleteBatch(@RequestBody List<Integer>ids) {
+        return userService.removeByIds(ids);
+    }
+
     @GetMapping
-    public List<User> findAll() {
-        return userService.list();
+    public Result findAll() {
+        return Result.success(userService.list());
+    }
+
+    @GetMapping("/username/{name}")
+    public Result findOne(@PathVariable String name) {
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("name", name);
+        return Result.success(userService.getOne(queryWrapper));
     }
 
     @GetMapping("/{id}")
-    public List<User> findOne(@PathVariable Integer id) {
-        return userService.list();
+    public Result findOne(@PathVariable Integer id) {
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("id", id);
+        return Result.success(userService.getOne(queryWrapper));
     }
 
     @GetMapping("/page")
-    public Page<User> findPage(@RequestParam Integer pageNum,
+    public Result findPage(@RequestParam Integer pageNum,
                                @RequestParam Integer pageSize,
                                @RequestParam(defaultValue = "") String name
     ) {
@@ -72,7 +99,7 @@ public class UserController {
         if (!"".equals(name)) {
             queryWrapper.like("name", name);
         }
-        return userService.page(new Page<>(pageNum, pageSize),queryWrapper);
+        return Result.success(userService.page(new Page<>(pageNum, pageSize), queryWrapper));
     }
 }
 

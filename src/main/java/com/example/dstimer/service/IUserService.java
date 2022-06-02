@@ -14,5 +14,7 @@ import com.example.dstimer.entity.dto.UserDTO;
  */
 public interface IUserService extends IService<User> {
 
-    boolean login(UserDTO userDTO);
+    UserDTO login(UserDTO userDTO);
+
+    User register(UserDTO userDTO);
 }
