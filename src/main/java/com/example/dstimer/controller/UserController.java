@@ -91,7 +91,9 @@ class UserController {
                                         @RequestParam(defaultValue = "") String name) {
         IPage<t_user> page = new Page<>(pageNum, pageSize);
         QueryWrapper<t_user> queryWrapper = new QueryWrapper<>();
-        queryWrapper.like("name", name);
+        if (!"".equals(name)) {
+            queryWrapper.like("name", name);
+        }
         return userService.page(page,queryWrapper);
     }
 }
