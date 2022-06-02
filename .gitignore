@@ -33,4 +33,5 @@ build/
 .vscode/
 
 ### 忽略数据库配置文件 我们的数据库密码不一样 ###
-/src/main/resources/application.yaml
+# /src/main/resources/application.yaml
+/.idea/
