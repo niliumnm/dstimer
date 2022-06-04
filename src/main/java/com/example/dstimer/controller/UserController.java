@@ -5,7 +5,6 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.dstimer.common.Constants;
 import com.example.dstimer.common.Result;
 import com.example.dstimer.entity.dto.UserDTO;
-import com.example.dstimer.utils.TokenUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
@@ -23,14 +22,18 @@ import org.springframework.web.bind.annotation.RestController;
 import static com.example.dstimer.utils.MD5Util.generateMD5;
 
 
+
+//@RestController == @Controller + @ResponseBody
 @RestController
+
+//请求方式
 @RequestMapping("/user")
 public class UserController {
 
-    @Resource
+    @Resource //与@Autowired 用法 用法相似，也是做依赖注入的，从容器中自动获取bean
     private IUserService userService;
 
-    @PostMapping("/login")
+    @PostMapping("/login") // == @RequestMapping(Method = RequestMethod.GET)
     public Result login(@RequestBody UserDTO userDTO) throws UnsupportedEncodingException {
         String name = userDTO.getName();
         String password = userDTO.getPassword();

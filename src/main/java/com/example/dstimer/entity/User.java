@@ -6,21 +6,13 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- * <p>
- * 
- * </p>
- *
- * @author sunbo
- * @since 2022-06-02
- */
+
 @Getter
 @Setter
-  @TableName("t_user")
+@TableName("t_user")
 @ApiModel(value = "User对象", description = "")
 public class User implements Serializable {
 

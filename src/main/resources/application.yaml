@@ -8,7 +8,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/dstimer?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=UTC
     username: root
-    password: root
+    password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
   # springboot2.6以上不开这个swagger会报错
   mvc:
@@ -26,6 +26,20 @@ logging:
 # 扫描Mybatis的xml文件
 mybatis:
   mapper-locations: classpath:mapper/*.xml
+
+
 mybatis-plus:
+  mapper-locations: classpath*:/mapper/**Mapper.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+files:
+  upload:
+    path: D:/java/dstimer/UploadPath/
+
+servlet:
+  multipart:
+    enabled: false
+    max-file-size: 20MB
+    max-request-size: 20MB
